@@ -1,12 +1,14 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions on windows-25 🚀
+name: dotnet package
+
 on: [push]
+
 jobs:
-  Explore-GitHub-Actions:
+  build:
+
     runs-on: windows-2025
     strategy:
       matrix:
-        dotnet-version: ['8.0.x']
+        dotnet-version:  ['8.0.x']
 
       steps:
         - uses: actions/checkout@v4
@@ -24,4 +26,5 @@ jobs:
             name: dotnet-results-${{ matrix.dotnet-version }}
             path: TestResults-${{ matrix.dotnet-version }}
           # Use always() to always run this step to publish test results when there are test failures
+          if: ${{ always() }}
           if: ${{ always() }}
