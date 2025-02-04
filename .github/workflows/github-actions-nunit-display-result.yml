@@ -33,5 +33,5 @@ jobs:
       - name: Test with dotnet, create trx file
         run: dotnet test --logger "trx;logfilename=testResults.trx"
       - name: run DotNetCrtfJsonReporter to convert TRX file into a CTRF
-        run: dotnet tool run DotnetCtrfJsonReporter -t "TestResults/testResults.trx"
+        run: dotnet tool run DotnetCtrfJsonReporter -p "TestResults/testResults.trx"
 
