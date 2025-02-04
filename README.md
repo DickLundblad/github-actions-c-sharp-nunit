@@ -8,3 +8,7 @@ Make NUnit test result visible on Github.com
 Upload artifacts from test execution
 ## [] add bash scripts with checks
 Add a bash script and a call to script
+
+## [] add script for CD
+Upload build artifact as release
+Create release Commit Tag tag on repository
