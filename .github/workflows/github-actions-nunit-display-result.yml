@@ -16,6 +16,7 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+
       - name: Setup dotnet
         uses: actions/setup-dotnet@v4
         with:
@@ -24,6 +25,13 @@ jobs:
         run: dotnet restore
       - name : Build
         run: dotnet build
-      - name: Test with dotnet
-        run: dotnet test
+
+      - name:  Create a tool manifest
+        run: new tool-manifest
+      - name:  install DotnetCrtfJsonReporter as local tool
+        run: dotnet tool install DotnetCtrfJsonReporter --local
+      - name: Test with dotnet, create trx file
+        run: dotnet test --logger "trx;logfilename = =testResults.trx"
+      - name: run DotNetCrtfJsonReporter to convert TRX file into a CTRF
+        run: dotnet tool DotnetCtrfJsonReporter -t "TestResults/testResults.trx"
 
