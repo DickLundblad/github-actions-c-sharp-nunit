@@ -31,7 +31,7 @@ jobs:
       - name:  install DotnetCrtfJsonReporter as local tool
         run: dotnet tool install DotnetCtrfJsonReporter --local
       - name: Test with dotnet, create trx file
-        run: dotnet test --logger "trx;logfilename = =testResults.trx"
+        run: dotnet test --logger "trx;logfilename=testResults.trx"
       - name: run DotNetCrtfJsonReporter to convert TRX file into a CTRF
         run: dotnet tool DotnetCtrfJsonReporter -t "TestResults/testResults.trx"
 
