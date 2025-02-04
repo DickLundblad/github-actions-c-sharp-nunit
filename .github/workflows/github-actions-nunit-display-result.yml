@@ -27,7 +27,7 @@ jobs:
         run: dotnet build
 
       - name:  Create a tool manifest
-        run: new tool-manifest
+        run: dotnet new tool-manifest
       - name:  install DotnetCrtfJsonReporter as local tool
         run: dotnet tool install DotnetCtrfJsonReporter --local
       - name: Test with dotnet, create trx file
