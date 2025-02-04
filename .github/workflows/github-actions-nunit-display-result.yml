@@ -32,6 +32,13 @@ jobs:
         run: dotnet tool install DotnetCtrfJsonReporter --local
       - name: Test with dotnet, create trx file
         run: dotnet test --logger "trx;logfilename=testResults.trx"
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
       - name: run DotNetCrtfJsonReporter to convert TRX file into a CTRF
-        run: dotnet tool run DotnetCtrfJsonReporter -p "TestResults/testResults.trx"
+        run: dotnet tool run DotnetCtrfJsonReporter -p "Tests/TestResults/testResults.trx"
+
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
 
