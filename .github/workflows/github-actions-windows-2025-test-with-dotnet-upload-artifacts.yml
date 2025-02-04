@@ -1,4 +1,5 @@
 name: dotnet package
+run-name: ${{ github.actor }} is testing out GitHub Actions run and upload  NUnit .trx file 🚀
 on: [push]
 jobs:
   build:
