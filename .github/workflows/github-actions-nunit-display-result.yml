@@ -2,7 +2,7 @@ name: GitHub NUnit display result
 run-name: ${{ github.actor }} is testing out GitHub Actions run and publish NUnit 🚀
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  Build-test-and-publish-test:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
